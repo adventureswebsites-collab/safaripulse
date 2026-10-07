@@ -179,12 +179,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
     <div className="space-y-16 sm:space-y-24 pb-20">
 
       {/* =========================================================================
-          5. HERO SECTION + 6. TRIP PREVIEW + 7. INTERACTIVE KENYA MAP
+          5. HERO SECTION (Compact Mobile Hero ~360-430px height, 1:1 feel + Rich Desktop Hero)
           ========================================================================= */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+      <section className="relative px-3.5 sm:px-6 lg:px-8 pt-3 sm:pt-6">
         <div className="max-w-7xl mx-auto">
           
-          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#171717] text-white p-6 sm:p-10 lg:p-12 border border-neutral-800 shadow-2xl min-h-[580px] flex flex-col justify-between">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-[#171717] text-white p-4 xs:p-5 sm:p-10 lg:p-12 border border-neutral-800 shadow-2xl min-h-0 lg:min-h-[580px] flex flex-col justify-between">
             
             {/* Dramatic African Adventure Photograph Background */}
             <div className="absolute inset-0 z-0">
@@ -194,15 +194,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center transition-all duration-700 ease-in-out scale-102"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/75 to-black/40" />
-              <div className="absolute inset-0 bg-black/25" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/80 to-black/45" />
+              <div className="absolute inset-0 bg-black/20" />
             </div>
 
             {/* Top Bar inside Hero: Location pill */}
-            <div className="relative z-10 flex items-center justify-between gap-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs font-semibold text-white/90">
-                <MapPin className="w-3.5 h-3.5 text-[#F97316]" />
-                <span className="truncate">{currentVibeData.caption}</span>
+            <div className="relative z-10 flex items-center justify-between gap-3 mb-2 sm:mb-0">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] sm:text-xs font-semibold text-white/90">
+                <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F97316] shrink-0" />
+                <span className="truncate max-w-[210px] xs:max-w-none">{currentVibeData.caption}</span>
               </div>
 
               <div className="hidden sm:flex items-center gap-2 text-[11px] font-bold text-[#FAF7F2]/80 bg-black/40 backdrop-blur-xs px-3 py-1 rounded-full border border-white/10">
@@ -211,41 +211,45 @@ export const HomeView: React.FC<HomeViewProps> = ({
               </div>
             </div>
 
-            {/* Middle Main Composition: Headline, Interactive Buttons, & Right-side Previews */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 my-6 sm:my-8 items-center">
+            {/* Middle Main Composition */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-8 my-2 sm:my-8 items-center">
               
               {/* Left Column: Personality-Driven Interactive Headline (Span 7) */}
-              <div className="lg:col-span-7 space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F97316]/20 border border-[#F97316]/40 text-[#F97316] text-xs font-black tracking-wider uppercase">
-                  <Sparkles className="w-3.5 h-3.5 fill-current" />
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                
+                {/* 3. Small eyebrow */}
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F97316]/20 border border-[#F97316]/40 text-[#F97316] text-[10px] sm:text-xs font-black tracking-wider uppercase w-fit mb-1.5 sm:mb-3">
+                  <Sparkles className="w-3 h-3 fill-current shrink-0" />
                   <span>DISCOVER SOMETHING TO DO</span>
                 </div>
 
-                <h1 className="text-3xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.04]">
-                  WHAT ARE YOU <br className="hidden sm:inline" />
+                {/* 4. Main headline */}
+                <h1 className="text-[34px] xs:text-[38px] sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[0.96] sm:leading-[1.04] mb-1.5 sm:mb-3">
+                  WHAT ARE YOU <br className="sm:hidden" />
                   <span className="text-white">UP FOR?</span>
                 </h1>
 
-                <p className="text-sm sm:text-xl text-[#FAF7F2]/90 max-w-xl font-medium leading-relaxed">
+                {/* 5. Subtitle */}
+                <p className="text-[13px] xs:text-sm sm:text-xl text-[#FAF7F2]/90 max-w-[290px] sm:max-w-xl font-medium leading-snug sm:leading-relaxed mb-2.5 sm:mb-4">
                   Find something worth leaving home for.
                 </p>
 
-                {/* Horizontally scrollable intent buttons (Selected turns orange) */}
-                <div className="pt-2">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#FAF7F2]/60 block mb-2">
+                {/* 6. Adventure vibe filters */}
+                <div className="mb-2.5 sm:mb-0">
+                  <span className="hidden sm:block text-[10px] uppercase font-bold tracking-widest text-[#FAF7F2]/60 mb-2">
                     CHOOSE YOUR ADVENTURE VIBE:
                   </span>
 
-                  <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto scrollbar-none pb-1.5 -mx-1 px-1 sm:mx-0 sm:px-0 sm:flex-wrap">
+                  <div className="flex items-center gap-1.5 sm:gap-2.5 overflow-x-auto scrollbar-none pb-0.5 -mx-1 px-1 sm:mx-0 sm:px-0 sm:flex-wrap">
                     {(['GET OUTSIDE', 'ESCAPE', 'GET ACTIVE', 'WEEKEND AWAY', 'DISCOVER'] as HeroVibe[]).map((vibe) => {
                       const isSelected = selectedVibe === vibe;
                       return (
                         <button
                           key={vibe}
                           onClick={() => setSelectedVibe(vibe)}
-                          className={`px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer shrink-0 min-h-[44px] flex items-center ${
+                          className={`h-[42px] px-3.5 py-2 rounded-full sm:rounded-xl text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all duration-200 cursor-pointer shrink-0 min-h-[42px] flex items-center whitespace-nowrap ${
                             isSelected
-                              ? 'bg-[#F97316] text-white shadow-lg shadow-[#F97316]/30 scale-102 ring-2 ring-[#EA580C]'
+                              ? 'bg-[#F97316] text-white shadow-md shadow-[#F97316]/30 ring-2 ring-[#EA580C]'
                               : 'bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/15'
                           }`}
                         >
@@ -256,12 +260,58 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </div>
                 </div>
 
+                {/* 7. Compact Mobile Weekend Recommendation Card (Visible on mobile, hidden on lg+) */}
+                <div 
+                  onClick={() => onQuickBook(ngongHillsTrip)}
+                  className="block lg:hidden bg-white text-[#171717] rounded-xl p-2 sm:p-2.5 shadow-md border border-[#E7E5E4] cursor-pointer hover:border-[#F97316] transition-all group active:scale-[0.99] mt-0.5"
+                >
+                  <div className="flex items-center gap-2.5">
+                    {/* Small thumbnail around 56-64px square */}
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden shrink-0 border border-[#E7E5E4]">
+                      <img
+                        src={ngongHillsTrip.featuredImage}
+                        alt={ngongHillsTrip.title}
+                        referrerPolicy="no-referrer"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+
+                    {/* Content to the right of the image */}
+                    <div className="min-w-0 flex-1 flex flex-col justify-center">
+                      <div className="flex items-center justify-between gap-1.5 mb-0.5">
+                        <div className="flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-ping" />
+                          <span className="text-[9px] font-black uppercase tracking-wider text-[#F97316]">
+                            THIS WEEKEND
+                          </span>
+                        </div>
+                        <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 leading-none">
+                          Guaranteed Departure
+                        </span>
+                      </div>
+
+                      <h3 className="text-[13px] sm:text-sm font-black text-[#171717] truncate leading-tight group-hover:text-[#F97316] transition-colors">
+                        NGONG HILLS ADVENTURE
+                      </h3>
+
+                      <div className="flex items-center justify-between gap-1 mt-0.5 text-[11px] text-[#737373]">
+                        <span className="truncate">
+                          Saturday · 8:00 AM · Nairobi
+                        </span>
+                        <span className="font-black text-[#F97316] text-xs shrink-0">
+                          KSh 1,500
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              {/* Right Column: 6. Real Bookable Trip Preview inside Hero (Span 5) */}
-              <div className="lg:col-span-5 space-y-4">
+              {/* Right Column: Desktop Featured Trip Preview inside Hero (Hidden on mobile, Visible on lg+) */}
+              <div className="hidden lg:block lg:col-span-5 space-y-4">
                 
-                {/* 6. FEATURED TRIP PREVIEW INSIDE HERO */}
+                {/* 6. FEATURED TRIP PREVIEW INSIDE HERO (Desktop) */}
                 <div className="bg-white text-[#171717] rounded-2xl p-5 shadow-2xl border border-[#E7E5E4] space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-[#E7E5E4]">
                     <div className="flex items-center gap-2">
@@ -336,8 +386,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
             </div>
 
-            {/* Bottom Row inside Hero: Quick Category shortcuts */}
-            <div className="relative z-10 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-white/80">
+            {/* Bottom Row inside Hero: Quick Category shortcuts (Desktop only, hidden on mobile) */}
+            <div className="hidden lg:flex relative z-10 pt-4 border-t border-white/10 flex-wrap items-center justify-between gap-3 text-xs text-white/80">
               <span className="font-bold text-[#FAF7F2]">
                 Instant Discovery:
               </span>
