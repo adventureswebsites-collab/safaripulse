@@ -1,0 +1,6 @@
+{
+  "name": "SafariPulse Adventures | Kenya Trip Booking Marketplace",
+  "description": "Discover and book verified Kenya safari expeditions, mountain treks, coastal getaways, and outdoor adventures with licensed local organizers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
