@@ -18,12 +18,12 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenOrganizerModal
 }) => {
   return (
-    <footer className="bg-[#171717] text-white border-t border-neutral-800 mt-20">
+    <footer className="bg-[#171717] text-white border-t border-neutral-800 mt-10 sm:mt-16 pb-16 md:pb-0">
       
       {/* Trust & Guarantee Strip */}
-      <div className="border-b border-neutral-800 py-10">
+      <div className="border-b border-neutral-800 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
             <div className="flex items-start gap-4">
               <ShieldCheck className="w-6 h-6 text-[#F97316] shrink-0 mt-0.5" />
               <div>
@@ -68,8 +68,8 @@ export const Footer: React.FC<FooterProps> = ({
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-10">
           
           {/* Brand Column (Span 4) */}
           <div className="md:col-span-4 space-y-4">

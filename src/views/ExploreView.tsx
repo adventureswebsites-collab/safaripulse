@@ -100,30 +100,30 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
   ].filter(Boolean).length;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-7 space-y-4 sm:space-y-6">
       
       {/* Header */}
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#F97316]" />
-            <span className="text-xs uppercase font-extrabold tracking-widest text-[#F97316]">
+            <span className="text-[10px] sm:text-xs uppercase font-extrabold tracking-widest text-[#F97316]">
               MARKETPLACE CATALOG · LIVE DEPARTURES
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight mt-1">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#171717] tracking-tight mt-0.5 sm:mt-1">
             Discover & Book Experiences
           </h1>
-          <p className="text-xs sm:text-sm text-[#737373] mt-1">
+          <p className="text-xs sm:text-sm text-[#737373] mt-0.5 sm:mt-1">
             Real scheduled departures with live seat availability, verified guides, and instant M-PESA booking.
           </p>
         </div>
 
         {/* Quick Date Timing Selector */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs font-bold">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1 text-xs font-bold">
           <button
             onClick={() => setDateFilter('all')}
-            className={`px-3.5 py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap min-h-[38px] ${
               dateFilter === 'all'
                 ? 'bg-[#171717] text-white'
                 : 'bg-white border border-[#E7E5E4] text-[#171717] hover:bg-[#FAF7F2]'
@@ -134,7 +134,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
 
           <button
             onClick={() => setDateFilter('this-weekend')}
-            className={`px-3.5 py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap flex items-center gap-1.5 min-h-[38px] ${
               dateFilter === 'this-weekend'
                 ? 'bg-[#F97316] text-white shadow-xs'
                 : 'bg-white border border-[#E7E5E4] text-[#171717] hover:bg-[#FAF7F2]'
@@ -146,7 +146,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
 
           <button
             onClick={() => setDateFilter('next-weekend')}
-            className={`px-3.5 py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap ${
+            className={`px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl transition-colors cursor-pointer whitespace-nowrap min-h-[38px] ${
               dateFilter === 'next-weekend'
                 ? 'bg-[#171717] text-white'
                 : 'bg-white border border-[#E7E5E4] text-[#171717] hover:bg-[#FAF7F2]'
@@ -157,7 +157,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         </div>
 
         {/* Global Search Bar */}
-        <div className="flex flex-col sm:flex-row gap-3 items-stretch">
+        <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch">
           <div className="relative flex-1">
             <Search className="w-4 h-4 text-[#737373] absolute left-3.5 top-3.5" />
             <input
@@ -165,7 +165,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by trip name, activity (cycling, camp, summit), or pickup hub..."
-              className="w-full pl-10 pr-4 py-3 bg-white border border-[#E7E5E4] rounded-xl text-xs sm:text-sm text-[#171717] focus:outline-none focus:border-[#F97316] shadow-xs"
+              className="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-white border border-[#E7E5E4] rounded-xl text-xs sm:text-sm text-[#171717] focus:outline-none focus:border-[#F97316] shadow-xs min-h-[44px]"
             />
             {searchQuery && (
               <button
@@ -179,7 +179,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
 
           <button
             onClick={() => setShowFiltersMobile(!showFiltersMobile)}
-            className="sm:hidden px-4 py-3 bg-white border border-[#E7E5E4] rounded-xl text-xs font-bold text-[#171717] flex items-center justify-center gap-2 cursor-pointer"
+            className="sm:hidden px-4 py-2.5 bg-white border border-[#E7E5E4] rounded-xl text-xs font-bold text-[#171717] flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
           >
             <SlidersHorizontal className="w-4 h-4 text-[#F97316]" />
             <span>Filters ({activeFiltersCount})</span>
@@ -188,7 +188,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* Main Grid: Filters Sidebar + Catalog */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
         
         {/* Filters Sidebar */}
         <aside className={`lg:block ${showFiltersMobile ? 'block' : 'hidden'} space-y-6`}>
@@ -304,13 +304,13 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         <main className="lg:col-span-3 space-y-6">
           
           {/* Controls Bar */}
-          <div className="p-4 bg-white rounded-xl border border-[#E7E5E4] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div className="p-3 sm:p-4 bg-white rounded-xl border border-[#E7E5E4] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
             <div>
               <span className="font-extrabold text-[#171717]">{filteredAdventures.length}</span>
               <span className="text-[#737373] ml-1">scheduled departures found</span>
             </div>
 
-            <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+            <div className="flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
               <div className="flex items-center gap-2">
                 <span className="text-[#737373]">Sort:</span>
                 <select
@@ -352,7 +352,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
           {/* Cards Catalog */}
           {filteredAdventures.length > 0 ? (
             <div
-              className={`grid gap-6 ${
+              className={`grid gap-3.5 sm:gap-5 lg:gap-6 ${
                 layoutMode === 'grid'
                   ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3'
                   : 'grid-cols-1'

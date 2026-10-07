@@ -42,16 +42,16 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E7E5E4] transition-all">
       
       {/* Top compact highlight bar */}
-      <div className="bg-[#171717] text-white text-[11px] font-medium py-1.5 px-4 text-center border-b border-black/10">
+      <div className="bg-[#171717] text-white text-[10px] sm:text-[11px] font-medium py-1 sm:py-1.5 px-3 sm:px-4 text-center border-b border-black/10">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-ping" />
-          <span className="text-[#FAF7F2]/90">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F97316] animate-ping shrink-0" />
+          <span className="text-[#FAF7F2]/90 truncate sm:overflow-visible">
             Departing this weekend across Kenya · Instant Lipa Na M-PESA seat confirmation & digital tickets
           </span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-17 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
         
         {/* Logo on the left */}
         <div className="flex items-center gap-8 shrink-0">
