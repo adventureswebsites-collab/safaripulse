@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Adventure, Booking, PassengerInfo } from '../types';
 import { formatKSh, formatDate } from '../utils/formatters';
 import { 
-  X, CheckCircle2, ChevronRight, ArrowLeft, ShieldCheck, 
+  X, CheckCircle2, ChevronRight, ArrowLeft, 
   CreditCard, Smartphone, Building, User, Mail, Phone, 
   MapPin, Calendar, Users, AlertCircle, Loader2, Ticket 
 } from 'lucide-react';
@@ -346,8 +346,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-extrabold text-[#171717]">Secure Payment</h3>
-                  <p className="text-xs text-[#737373] mt-0.5">Protected by KATO Bonded Escrow.</p>
+                  <h3 className="text-lg font-extrabold text-[#171717]">Payment</h3>
+                  <p className="text-xs text-[#737373] mt-0.5">Select your preferred payment method.</p>
                 </div>
 
                 {/* Method Tabs */}

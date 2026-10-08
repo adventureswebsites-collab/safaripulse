@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  ShieldCheck, PhoneCall, Award, CreditCard, ArrowRight,
+  ArrowRight,
   Instagram, Twitter, Facebook, Youtube, Mail, Compass
 } from 'lucide-react';
 
@@ -20,53 +20,6 @@ export const Footer: React.FC<FooterProps> = ({
   return (
     <footer className="bg-[#171717] text-white border-t border-neutral-800 mt-10 sm:mt-16 pb-16 md:pb-0">
       
-      {/* Trust & Guarantee Strip */}
-      <div className="border-b border-neutral-800 py-6 sm:py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8">
-            <div className="flex items-start gap-4">
-              <ShieldCheck className="w-6 h-6 text-[#F97316] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-sm font-bold text-white tracking-wide">100% KATO Bonded Operators</h4>
-                <p className="text-xs text-[#FAF7F2]/70 mt-1 leading-relaxed">
-                  Every tour company is registered with Kenya Tourism Regulatory Authority (TRA).
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <CreditCard className="w-6 h-6 text-[#F97316] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-sm font-bold text-white tracking-wide">M-PESA & Card Escrow</h4>
-                <p className="text-xs text-[#FAF7F2]/70 mt-1 leading-relaxed">
-                  Instant STK Push confirmation. Your funds are protected in escrow until departure.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Award className="w-6 h-6 text-[#F97316] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-sm font-bold text-white tracking-wide">Certified Field Guides</h4>
-                <p className="text-xs text-[#FAF7F2]/70 mt-1 leading-relaxed">
-                  Led by certified KPSGA naturalists and Mountain Club of Kenya guides.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <PhoneCall className="w-6 h-6 text-[#F97316] shrink-0 mt-0.5" />
-              <div>
-                <h4 className="text-sm font-bold text-white tracking-wide">24/7 Field Rescue Desk</h4>
-                <p className="text-xs text-[#FAF7F2]/70 mt-1 leading-relaxed">
-                  Live dispatch from Nairobi for weather, roads, and emergency coordination.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-10">

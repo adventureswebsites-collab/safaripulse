@@ -3,7 +3,7 @@ import { Booking } from '../types';
 import { formatKSh, formatDate } from '../utils/formatters';
 import { 
   CheckCircle2, MapPin, Calendar, Clock, Users, 
-  Printer, Shield, Phone, Sparkles, X, ArrowDownToLine 
+  Printer, Phone, Sparkles, X, ArrowDownToLine 
 } from 'lucide-react';
 
 interface DigitalTicketProps {

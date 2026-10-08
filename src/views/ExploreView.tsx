@@ -115,7 +115,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
             Discover & Book Experiences
           </h1>
           <p className="text-xs sm:text-sm text-[#737373] mt-0.5 sm:mt-1">
-            Real scheduled departures with live seat availability, verified guides, and instant M-PESA booking.
+            Real scheduled departures with live seat availability, expert guides, and instant M-PESA booking.
           </p>
         </div>
 
@@ -188,11 +188,11 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* Main Grid: Filters Sidebar + Catalog */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
         
         {/* Filters Sidebar */}
-        <aside className={`lg:block ${showFiltersMobile ? 'block' : 'hidden'} space-y-6`}>
-          <div className="bg-white p-6 rounded-2xl border border-[#E7E5E4] space-y-6">
+        <aside className={`lg:block ${showFiltersMobile ? 'block' : 'hidden'} space-y-4 sm:space-y-6`}>
+          <div className="bg-white p-4 sm:p-5 lg:p-6 rounded-2xl border border-[#E7E5E4] space-y-4 sm:space-y-6">
             
             <div className="flex items-center justify-between pb-3 border-b border-[#E7E5E4]">
               <span className="text-xs uppercase tracking-wider font-extrabold text-[#171717] flex items-center gap-1.5">
@@ -301,7 +301,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         </aside>
 
         {/* Results Catalog */}
-        <main className="lg:col-span-3 space-y-6">
+        <main className="lg:col-span-3 space-y-4 sm:space-y-6">
           
           {/* Controls Bar */}
           <div className="p-3 sm:p-4 bg-white rounded-xl border border-[#E7E5E4] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">

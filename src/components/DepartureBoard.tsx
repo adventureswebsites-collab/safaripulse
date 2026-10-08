@@ -1,7 +1,7 @@
 import React from 'react';
 import { Adventure } from '../types';
 import { formatKSh } from '../utils/formatters';
-import { Zap, Clock, MapPin, ArrowRight, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Zap, Clock, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface DepartureBoardProps {
   adventures: Adventure[];
@@ -32,16 +32,6 @@ export const DepartureBoard: React.FC<DepartureBoardProps> = ({
           <p className="text-xs text-[#FAF7F2]/75">
             Confirmed overland departures leaving Kencom CBD, Westlands Shell, and Museum Hill this week.
           </p>
-        </div>
-
-        <div className="flex items-center gap-2 sm:gap-3 text-xs">
-          <div className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5 text-white text-[11px] sm:text-xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>KATO Bonded</span>
-          </div>
-          <div className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-[#F97316]/20 border border-[#F97316]/40 text-[#F97316] font-bold text-[11px] sm:text-xs">
-            Escrow Protected
-          </div>
         </div>
       </div>
 

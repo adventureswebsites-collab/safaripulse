@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
-  MapPin, Calendar, Clock, Star, ArrowRight, ShieldCheck, 
-  CheckCircle2, Heart, Sparkles, Compass, Ticket, PhoneCall, 
-  Users, Zap, ChevronRight, Sunrise, DollarSign, Flame, Award, Search,
+  MapPin, Calendar, Clock, Star, ArrowRight, 
+  CheckCircle2, Heart, Sparkles, Compass, 
+  Users, Zap, ChevronRight, Sunrise, DollarSign, Flame, Search,
   ChevronLeft
 } from 'lucide-react';
 import { Adventure } from '../types';
@@ -811,9 +811,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                     <div className="flex items-center gap-1.5 text-xs text-[#737373]">
                       <span className="text-[#171717] font-medium truncate">{adv.organizer.name}</span>
-                      {adv.organizer.verified && (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#F97316] shrink-0" />
-                      )}
                     </div>
 
                     {/* Available Seats Bar */}
@@ -867,10 +864,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
       {/* =========================================================================
           7. INTERACTIVE KENYA ADVENTURE MAP (Distinctive Platform Signature)
           ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center bg-[#FAF7F2] p-4 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl border border-[#E7E5E4]">
+      <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center bg-[#FAF7F2] p-2.5 sm:p-5 lg:p-8 rounded-2xl sm:rounded-3xl border border-[#E7E5E4]">
           
-          <div className="lg:col-span-5 space-y-3 sm:space-y-4">
+          {/* Editorial column: displayed on desktop; hidden on mobile to keep compact mobile preview */}
+          <div className="hidden lg:block lg:col-span-5 space-y-3 sm:space-y-4">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#F97316]" />
               <span className="text-[10px] sm:text-xs uppercase font-black tracking-widest text-[#F97316]">
@@ -914,78 +912,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
           </div>
 
-          {/* Right Column: The Illustrated Editorial Kenya Map */}
-          <div className="lg:col-span-7">
+          {/* Compact Map Preview on Mobile / Editorial Column on Desktop */}
+          <div className="w-full lg:col-span-7">
             <KenyaAdventureMap onSelectHotspot={onExploreDestination} />
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================================================
-          8. TRUST BAR (Below Hero)
-          ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-[#E7E5E4] p-4 sm:p-6 lg:p-7 shadow-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#E7E5E4]">
-          
-          {/* Trust item 1 */}
-          <div className="flex items-start gap-3 pt-3 sm:pt-0 sm:px-3 first:pt-0 first:px-0">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FFF7ED] border border-[#F97316]/30 flex items-center justify-center shrink-0 text-[#F97316]">
-              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#171717]">
-                SECURE BOOKING
-              </h4>
-              <p className="text-xs text-[#737373] mt-0.5 leading-snug">
-                Your payments are protected.
-              </p>
-            </div>
-          </div>
-
-          {/* Trust item 2 */}
-          <div className="flex items-start gap-3 pt-3 sm:pt-0 sm:px-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FFF7ED] border border-[#F97316]/30 flex items-center justify-center shrink-0 text-[#F97316]">
-              <Ticket className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#171717]">
-                DIGITAL TICKETS
-              </h4>
-              <p className="text-xs text-[#737373] mt-0.5 leading-snug">
-                Get your QR ticket instantly.
-              </p>
-            </div>
-          </div>
-
-          {/* Trust item 3 */}
-          <div className="flex items-start gap-3 pt-3 sm:pt-0 sm:px-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FFF7ED] border border-[#F97316]/30 flex items-center justify-center shrink-0 text-[#F97316]">
-              <Award className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#171717]">
-                VERIFIED ORGANIZERS
-              </h4>
-              <p className="text-xs text-[#737373] mt-0.5 leading-snug">
-                Book from trusted organizers.
-              </p>
-            </div>
-          </div>
-
-          {/* Trust item 4 */}
-          <div className="flex items-start gap-3 pt-3 sm:pt-0 sm:px-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FFF7ED] border border-[#F97316]/30 flex items-center justify-center shrink-0 text-[#F97316]">
-              <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
-            </div>
-            <div>
-              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#171717]">
-                24/7 SUPPORT
-              </h4>
-              <p className="text-xs text-[#737373] mt-0.5 leading-snug">
-                We're here when you need us.
-              </p>
-            </div>
           </div>
 
         </div>
@@ -998,8 +927,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
           Diani Beach Escape (KSh 7,500)
           Lake Naivasha Camping (KSh 5,500)
           ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 sm:mb-6 pb-2.5 sm:pb-3 border-b border-[#E7E5E4] gap-2">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-3.5 sm:mb-6 pb-2.5 sm:pb-3 border-b border-[#E7E5E4] gap-2">
           <div>
             <span className="text-[10px] sm:text-xs uppercase font-black tracking-widest text-[#F97316] block">
               TOP BOOKINGS
@@ -1014,15 +943,15 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           <button
             onClick={onOpenExplore}
-            className="text-xs font-bold text-[#171717] hover:text-[#F97316] flex items-center gap-1.5 cursor-pointer transition-colors"
+            className="text-xs font-bold text-[#171717] hover:text-[#F97316] flex items-center gap-1.5 cursor-pointer transition-colors self-start sm:self-auto min-h-[36px]"
           >
             <span>View All Popular</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* 4 Clean Adventure Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6">
+        {/* 2-column compact grid on Mobile, 2 cols on Tablet, 4 cols on Desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
           {popularTrips.map((adv) => (
             <AdventureCard
               key={adv.id}
@@ -1031,6 +960,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               onToggleSave={onToggleSave}
               onSelect={onSelectAdventure}
               onQuickBook={onQuickBook}
+              compact={true}
             />
           ))}
         </div>
@@ -1101,7 +1031,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   ))}
                 </div>
                 <span className="font-black text-[#171717]">4.8</span>
-                <span className="text-[#737373]">(164 verified reviews)</span>
+                <span className="text-[#737373]">(164 reviews)</span>
               </div>
 
               <p className="text-xs sm:text-sm text-[#737373] leading-relaxed">
@@ -1601,7 +1531,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                 PAY
               </h3>
               <p className="text-xs text-[#737373] leading-relaxed">
-                Pay securely online.
+                Complete M-PESA or card payment.
               </p>
             </div>
 
@@ -1701,7 +1631,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 sm:p-6 w-full max-w-md space-y-4 text-center">
               <div className="space-y-0.5">
                 <span className="text-[10px] sm:text-xs font-bold text-[#F97316] uppercase">Fast Partner Onboarding</span>
-                <p className="text-sm sm:text-base font-extrabold text-white">Join Verified Kenyan Tour Clubs</p>
+                <p className="text-sm sm:text-base font-extrabold text-white">Join Leading Kenyan Tour Clubs</p>
               </div>
 
               <button

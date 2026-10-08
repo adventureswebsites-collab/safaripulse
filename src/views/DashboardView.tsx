@@ -170,7 +170,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
               <h3 className="text-2xl font-bold text-[#171717]">Completed Trips</h3>
               <span className="text-3xl font-extrabold text-[#171717]">{completed.length}</span>
             </div>
-            <p className="text-xs text-[#737373]">Past expeditions and verified receipts.</p>
+            <p className="text-xs text-[#737373]">Past expeditions and boarding passes.</p>
             <span className="text-xs font-bold text-[#171717] inline-flex items-center gap-1 pt-2">
               <span>View History</span>
               <ArrowRight className="w-3.5 h-3.5" />

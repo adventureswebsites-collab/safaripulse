@@ -4,7 +4,7 @@ import {
 } from '../types';
 import { formatKSh, formatDate } from '../utils/formatters';
 import { 
-  Star, Heart, ShieldCheck, MapPin, Calendar, Clock, 
+  Star, Heart, MapPin, Calendar, Clock, 
   Users, CheckCircle2, XCircle, ArrowLeft, 
   ChevronDown, ChevronUp, Share2, Phone, Award, Compass, Sparkles, Zap 
 } from 'lucide-react';
@@ -38,10 +38,10 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
   const percentBooked = Math.round((adventure.bookedSeatsCount / adventure.totalSeats) * 100);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 space-y-6 sm:space-y-8 lg:space-y-10">
       
       {/* Top back navigation */}
-      <div className="flex items-center justify-between border-b border-[#E7E5E4] pb-4">
+      <div className="flex items-center justify-between border-b border-[#E7E5E4] pb-3 sm:pb-4">
         <button
           onClick={onBack}
           className="flex items-center gap-2 text-xs uppercase tracking-wider font-extrabold text-[#171717] hover:text-[#F97316] transition-colors cursor-pointer"
@@ -87,7 +87,7 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
           <div className="flex items-center gap-1.5 font-bold">
             <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
             <span>{adventure.rating.toFixed(2)}</span>
-            <span className="text-[#737373] font-normal">({adventure.reviewsCount} verified reviews)</span>
+            <span className="text-[#737373] font-normal">({adventure.reviewsCount} reviews)</span>
           </div>
 
           <div className="flex items-center gap-1.5 text-[#171717] font-medium">
@@ -137,13 +137,13 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
       </div>
 
       {/* Grid Layout: Main Details vs Sticky Booking Bar */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         
         {/* LEFT COLUMN: Overview, Organizer, Itinerary, Inclusions */}
-        <div className="lg:col-span-8 space-y-10">
+        <div className="lg:col-span-8 space-y-6 sm:space-y-8 lg:space-y-10">
           
           {/* Quick Stats Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white border border-[#E7E5E4] shadow-xs text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 p-3.5 sm:p-5 rounded-2xl bg-white border border-[#E7E5E4] shadow-xs text-xs">
             <div>
               <span className="uppercase text-[10px] text-[#737373] font-bold block">Next Departure</span>
               <span className="font-extrabold text-[#171717] mt-1 block">{adventure.nextDepartureDateText}</span>
@@ -163,7 +163,7 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
           </div>
 
           {/* Overview Section */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <h2 className="text-xl sm:text-2xl font-extrabold text-[#171717]">Expedition Overview</h2>
             <p className="text-sm text-[#171717]/85 leading-relaxed">
               {adventure.overview}
@@ -171,13 +171,13 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
           </div>
 
           {/* Key Highlights */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <h3 className="text-sm uppercase tracking-wider font-extrabold text-[#737373]">
               Expedition Highlights
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs">
               {adventure.highlights.map((highlight, index) => (
-                <div key={index} className="flex items-start gap-2.5 p-3 rounded-xl bg-white border border-[#E7E5E4]">
+                <div key={index} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-white border border-[#E7E5E4]">
                   <CheckCircle2 className="w-4 h-4 text-[#F97316] shrink-0 mt-0.5" />
                   <span className="text-[#171717] leading-relaxed font-medium">{highlight}</span>
                 </div>
@@ -186,7 +186,7 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
           </div>
 
           {/* Organizer Card */}
-          <div className="p-6 bg-white rounded-2xl border border-[#E7E5E4] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+          <div className="p-4 sm:p-6 bg-white rounded-2xl border border-[#E7E5E4] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
             <div className="flex items-center gap-4">
               <img
                 src={adventure.organizer.avatar}
@@ -197,11 +197,6 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
               <div>
                 <div className="flex items-center gap-1.5">
                   <h4 className="font-bold text-[#171717] text-base">{adventure.organizer.name}</h4>
-                  {adventure.organizer.verified && (
-                    <span className="bg-[#FFF7ED] text-[#F97316] text-[10px] px-2 py-0.5 rounded-full font-extrabold">
-                      VERIFIED
-                    </span>
-                  )}
                 </div>
                 <p className="text-xs text-[#737373] mt-0.5">{adventure.organizer.licenseNumber}</p>
                 <p className="text-xs text-[#171717] mt-1">
@@ -378,8 +373,8 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
         </div>
 
         {/* RIGHT COLUMN: Sticky Instant Booking Panel */}
-        <div className="lg:col-span-4 sticky top-28">
-          <div className="bg-white rounded-2xl border border-[#E7E5E4] shadow-lg p-6 sm:p-7 space-y-6">
+        <div className="lg:col-span-4 sticky top-24 sm:top-28">
+          <div className="bg-white rounded-2xl border border-[#E7E5E4] shadow-lg p-4.5 sm:p-6 lg:p-7 space-y-4 sm:space-y-6">
             
             {/* Price Header */}
             <div className="pb-5 border-b border-[#E7E5E4]">
@@ -477,15 +472,6 @@ export const AdventureDetailView: React.FC<AdventureDetailViewProps> = ({
             >
               <span>RESERVE SEAT NOW · {formatKSh(totalTripAmount)}</span>
             </button>
-
-            {/* Trust Reassurance */}
-            <div className="text-[11px] text-[#737373] text-center space-y-1 font-medium">
-              <p className="flex items-center justify-center gap-1.5 text-[#171717] font-bold">
-                <ShieldCheck className="w-4 h-4 text-[#F97316]" />
-                <span>Lipa Na M-PESA STK Push Escrow</span>
-              </p>
-              <p>Instant digital boarding pass generated with QR check-in.</p>
-            </div>
 
           </div>
         </div>
