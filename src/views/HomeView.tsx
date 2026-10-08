@@ -1144,38 +1144,50 @@ export const HomeView: React.FC<HomeViewProps> = ({
           Hell's Gate Cycling | Naivasha Boat Ride | Mombasa Beach Escape | Amboseli Safari
           ========================================================================= */}
       <section className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-4 sm:mb-6 pb-2.5 sm:pb-3 border-b border-[#E7E5E4] gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-2.5 sm:mb-4 pb-2 sm:pb-2.5 border-b border-[#E7E5E4] gap-1.5">
           <div>
-            <div className="flex items-center gap-2 mb-0.5">
+            <div className="flex items-center gap-1.5 mb-0.5">
               <span className="w-2 h-2 rounded-full bg-[#EA580C] animate-ping" />
               <span className="text-[10px] sm:text-xs uppercase font-black tracking-widest text-[#EA580C]">
                 LIVE BOOKING DEMAND
               </span>
             </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#171717]">
-              TRENDING THIS WEEK
-            </h2>
-            <p className="text-xs sm:text-sm text-[#737373] mt-0.5">
+            <div className="flex items-center gap-2">
+              <h2 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-[#171717]">
+                TRENDING THIS WEEK
+              </h2>
+              <span className="sm:hidden text-[10px] font-bold text-[#F97316] bg-[#F97316]/10 px-2 py-0.5 rounded-full">
+                Swipe →
+              </span>
+            </div>
+            <p className="text-[11px] sm:text-xs text-[#737373] mt-0.5">
               What people are booking right now.
             </p>
           </div>
 
           <button
             onClick={onOpenExplore}
-            className="text-xs font-bold text-[#171717] hover:text-[#F97316] flex items-center gap-1 cursor-pointer transition-colors"
+            className="text-xs font-bold text-[#171717] hover:text-[#F97316] flex items-center gap-1 cursor-pointer transition-colors self-start sm:self-auto min-h-[32px] sm:min-h-0"
           >
             <span>View All Trending</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Horizontal Marketplace Trip Rail */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 lg:gap-6">
+        {/* Horizontal Marketplace Trip Rail: Scrollable on mobile/tablet, 4-column row on desktop */}
+        <div 
+          className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 lg:gap-5 pb-2 pt-0.5 no-scrollbar scrollbar-none lg:grid lg:grid-cols-4 lg:overflow-visible lg:pb-0"
+          style={{ 
+            scrollbarWidth: 'none', 
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch' 
+          }}
+        >
           {trendingRailTrips.map((adv) => (
             <div
               key={adv.id}
               onClick={() => onSelectAdventure(adv)}
-              className="group bg-white rounded-xl border border-[#E7E5E4] overflow-hidden hover:border-[#F97316]/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+              className="group bg-white rounded-xl border border-[#E7E5E4] overflow-hidden hover:border-[#F97316]/50 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between shrink-0 snap-start w-[78%] xs:w-[75%] sm:w-[48%] lg:w-auto"
             >
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
@@ -1186,36 +1198,71 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500 ease-out"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                  {/* Category Pill */}
+                  <div className="absolute top-2 left-2 bg-black/65 backdrop-blur-xs text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md shadow-xs">
                     {adv.category}
                   </div>
-                  <div className="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1">
+
+                  {/* Rating Badge */}
+                  <div className="absolute bottom-2 left-2 bg-black/65 backdrop-blur-xs text-white text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md flex items-center gap-1 shadow-xs">
                     <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                     <span>{adv.rating.toFixed(1)}</span>
                   </div>
+
+                  {/* Heart / Favorite Button */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onToggleSave(adv.id, e);
+                    }}
+                    aria-label="Save to favorites"
+                    className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/50 hover:bg-black/75 backdrop-blur-xs flex items-center justify-center text-white transition-all z-10 cursor-pointer shadow-xs"
+                  >
+                    <Heart
+                      className={`w-3.5 h-3.5 transition-colors ${
+                        savedIds.includes(adv.id)
+                          ? 'fill-rose-500 text-rose-500'
+                          : 'text-white hover:text-rose-400'
+                      }`}
+                    />
+                  </button>
                 </div>
 
-                <div className="p-3 sm:p-3.5 space-y-1.5">
-                  <h3 className="text-sm sm:text-base font-extrabold text-[#171717] group-hover:text-[#F97316] transition-colors leading-snug line-clamp-2">
+                <div className="p-2.5 sm:p-3 space-y-1">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#171717] group-hover:text-[#F97316] transition-colors leading-snug line-clamp-2 min-h-[32px] sm:min-h-[36px]">
                     {adv.title}
                   </h3>
-                  <div className="flex items-center justify-between text-xs text-[#737373]">
+                  
+                  <div className="flex items-center gap-1 text-[11px] text-[#737373]">
+                    <MapPin className="w-3 h-3 text-[#F97316] shrink-0" />
                     <span className="truncate">{adv.destination}</span>
-                    <span className="font-bold text-[#171717]">{adv.availableSeats} seats left</span>
+                  </div>
+
+                  <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-[#737373] pt-0.5">
+                    <div className="flex items-center gap-1 truncate">
+                      <Calendar className="w-3 h-3 text-[#737373] shrink-0" />
+                      <span className="truncate">{adv.nextDepartureDateText}</span>
+                    </div>
+                    <span className="font-bold text-[#171717] shrink-0">{adv.availableSeats} seats left</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-3 sm:p-3.5 pt-0 flex items-center justify-between border-t border-[#E7E5E4] mt-1.5">
-                <span className="font-black text-[#F97316] text-sm sm:text-base">
-                  {formatKSh(adv.pricePerPerson)}
-                </span>
+              <div className="p-2.5 sm:p-3 pt-0 flex items-center justify-between border-t border-[#E7E5E4] mt-1">
+                <div>
+                  <span className="text-[9px] text-[#737373] block uppercase tracking-wider font-semibold">From</span>
+                  <span className="font-black text-[#F97316] text-xs sm:text-sm font-mono">
+                    {formatKSh(adv.pricePerPerson)}
+                  </span>
+                </div>
                 <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     onQuickBook(adv);
                   }}
-                  className="px-3 py-1.5 bg-[#F97316] hover:bg-[#EA580C] text-white text-[11px] font-bold uppercase rounded-lg transition-colors min-h-[36px]"
+                  className="px-2.5 sm:px-3 py-1.5 bg-[#F97316] hover:bg-[#EA580C] text-white text-[10px] sm:text-[11px] font-bold uppercase rounded-lg transition-colors min-h-[32px] cursor-pointer"
                 >
                   Book Seat
                 </button>
